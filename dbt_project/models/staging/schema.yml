@@ -40,4 +40,10 @@ models:
         description: "Status of the order"
         test:
           - not_null
+      - name: status_number
+        description: "Postive status means the order is in progress or done. Negative values indicate return statuses"
+        tests:
+          - accepted_values:
+              values: [-2,-1,1,2,3]
+              quote: false
         
