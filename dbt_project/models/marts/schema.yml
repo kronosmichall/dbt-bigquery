@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: customer_infos 
+    description: "Customer with first, last order date and amount of orders"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "Customer first name"
+        tests:
+          - not_null  
+      - name: last_name 
+        description: "Customer last name"
+        tests:
+          - not_null  
+
+
+

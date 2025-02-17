@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: customers
+    description: "Shop customers"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "Customer first name"
+        tests:
+          - not_null  
+      - name: last_name 
+        description: "Customer last name"
+        tests:
+          - not_null  
+
+  - name: orders
+    description: "Shop orders"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "Foreign key of customers"
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: id
+      - name: order_date
+        description: "Date when order was made"
+        tests:
+          - not_null
+      - name: status
+        description: "Status of the order"
+        test:
+          - not_null
+        
